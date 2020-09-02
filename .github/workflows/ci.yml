@@ -1,4 +1,4 @@
-name: Build and publish to github page.
+name: Build and publish to github pages
 
 on:
   push:
@@ -13,4 +13,4 @@ jobs:
 
       - name: deploy
         run: |
-          docker run --rm -v ${PWD}:/docs squidfunk/mkdocs-material gh-deploy
+          docker run --rm -v ${PWD}:/docs squidfunk/mkdocs-material gh-deploy --force
