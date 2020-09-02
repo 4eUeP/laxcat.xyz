@@ -1,0 +1,16 @@
+name: Build and publish to github page.
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build & Publish
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: deploy
+        run: |
+          docker run --rm -v ${PWD}:/docs squidfunk/mkdocs-material gh-deploy
