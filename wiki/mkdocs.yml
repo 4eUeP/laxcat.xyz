@@ -1,0 +1,33 @@
+site_name: Wiki
+
+theme:
+  name: "material"
+  font: false
+  features:
+    - instant
+    - navigation.expand
+    - tabs
+
+extra_css:
+  - _styles/extra.css
+
+plugins:
+  - search
+
+repo_url: https://github.com/4eUeP/laxcat
+repo_name: 4eUeP/laxcat
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+nav:
+  - Home: index.md
+  - Linux:
+      - Tips: linux/linux-tips.md
+      - RaspberryPi: linux/raspberrypi.md
+  - Haskell:
+      - Development Environment: haskell/dev-env.md

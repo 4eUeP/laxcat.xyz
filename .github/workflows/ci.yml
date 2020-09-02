@@ -1,0 +1,36 @@
+name: Build and publish to github pages
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build & Publish
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: rm -rf ./site && mkdir site
+
+      - name: Build wiki
+        run: |
+          docker run --rm -u $(id -u):$(id -g) -v ${PWD}/wiki:/docs squidfunk/mkdocs-material build
+          mv ./wiki/site ./site/wiki
+
+      - name: Deploy
+        run: |
+          cp CNAME index.html site/
+
+          git config user.name "GithubAction"
+          git config user.email "59917266+4eUeP@users.noreply.github.com"
+
+          git fetch --all
+          SRC_HEAD=$(git rev-parse --short HEAD)
+
+          git checkout -b gh-pages origin/gh-pages
+          git reset --hard $(git rev-list --max-parents=0 --abbrev-commit HEAD)
+          cp -a site/. ./
+          git add -A
+          git commit -m "Published $SRC_HEAD"
+          git push origin gh-pages -f
