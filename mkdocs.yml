@@ -20,6 +20,11 @@ repo_name: 4eUeP/open-notes
 markdown_extensions:
   - toc:
       permalink: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 
 nav:
   - Home: index.md
+  - Linux:
+      - RaspberryPi: linux/raspberrypi.md
