@@ -5,7 +5,11 @@ theme:
   font: false
   features:
     - instant
+    - navigation.expand
     - tabs
+
+extra_css:
+  - _styles/extra.css
 
 plugins:
   - search
