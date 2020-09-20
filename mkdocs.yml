@@ -27,4 +27,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Linux:
+      - Tips: linux/linux-tips.md
       - RaspberryPi: linux/raspberrypi.md
+  - Haskell:
+      - Development Environment: haskell/dev-env.md

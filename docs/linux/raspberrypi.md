@@ -107,6 +107,11 @@ sudo reboot
 ```
 
 
+## Issue
+
+TODO
+
+
 ## References
 
 - [Installing operating system images on Linux](https://www.raspberrypi.org/documentation/installation/installing-images/linux.md)
